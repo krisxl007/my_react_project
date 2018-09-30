@@ -9,10 +9,27 @@
   </head>
   <body>
     <div id="root"></div>
+
     <script type="text/babel">
+      // define an js object
+      const person = {
+          name: 'Jack',
+          age: 20
+      };
+
+      const element = (
+          <div>
+            <p>Hello world!!!</p>
+
+            {/* JSX comment: this is JSX with ES6 syntax */}
+            <p>Name : {person.name}</p>
+            <p>Age : {person.age}</p>
+          </div>
+      );
+
       ReactDOM.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('root')
+          element,
+          document.getElementById('root')
       );
     </script>
   </body>
