@@ -1,0 +1,52 @@
+================
+React项目使用步骤：
+================
+1. 安装依赖包： npm i react react-dom -S
+    * react包：用于创建组建和虚拟DOM
+    * react-dom包：用于DOM操作，例如ReactDOM.render方法
+
+2. 在JS文件中引入React依赖包：
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+3. 用React创建虚拟DOM元素：
+const myh1 = React.createElement('h1', {id: 'myh1', title: 'myh1Title'}, 'Hello React!!');
+
+4. 用ReactDOM渲染虚拟DOM元素：
+ReactDOM.render(myh1, document.getElementById('app'));
+
+
+============
+JSX语法的使用：
+============
+JSX语法就是符合XML规范的JS语法，通过使用babel包，可以把JSX语法中的HTML元素转换成React底层的语法(如React.createElement等）
+
+1. 安装bible：
+    * npm i @babel/core babel-loader -D (核心包和加载器)
+    * npm i @babel/preset-env @babel/preset-react -D (语法转换包)
+    * npm i @babel/plugin-transform-runtime -D (运行时插件)
+    * npm i @babel/runtime -D (babel运行时包)
+    * npm i @babel/plugin-proposal-class-properties -D
+
+2. 在根目录添加.babelrc配置文件（JSON格式的配置文件）：
+{
+    "presets":[
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+
+    "plugins":[
+        "@babel/plugin-transform-runtime"
+    ]
+}
+
+3. 在webpack.config.js中配置babel-loader来允许webpack打包除js以外的文件（webpack默认只打包js类型文件）：
+    module: {
+      rules: [
+          {
+              test: /\.js|jsx$/,
+              use: 'babel-loader',
+              exclude: /node_modules/
+          }
+      ]
+    }

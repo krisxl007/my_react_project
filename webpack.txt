@@ -1,0 +1,47 @@
+==================
+创建webpack项目步骤：
+==================
+1. 运行npm init -y 快速初始化项目
+2. 在项目根目录创建src源代码目录和dist产品目录，并创建以下目录：
+    * src目录下创建index.html文件和index.js文件(webpack 4以后打包的入口文件)
+    * 根目录下创建webpack的配置文件webpack.config.js并配置mode模式
+3. 安装webpack和webpack-cli，运行npm i webpack webpack-cli -D
+4. webpack 4.x版本提供了约定大于配置的概念，目的是为了尽量减少配置文件：
+    * 打包的入口是src->index.js
+    * 输入文件为dist->main.js
+    * 4.x中新增了mode选项，development和production，来决定是否压缩输出文件
+5. 在根目录下运行webpack即可打包到dist目录中
+
+
+===========================================
+安装webpack自动打包开发工具webpack-dev-server：
+===========================================
+webpack打包的main.js文件每次都要重新打包很不方便，webpack提供了开发工具webpack-dev-server来在内存中实时编译main.js文件。
+1. 安装webpack-dev-server: npm i webpack-dev-server -D
+2. 在package.json中配置运行脚本："dev": "webpack-dev-server --open --host 127.0.0.1 --port 3000"
+3. 运行webpack-dev-server：npm run dev
+4. 在index.html中引入运行在内存中的main.js文件(在根目录中)即可看到效果：<script src="/main.js"></script>
+
+----------------------------------------------
+安装webpack-dev-server的插件html-webpack-plugin：
+----------------------------------------------
+html-webpack-plugin插件可以在webpack-dev-server运行时把指定的html页面也编译到内存中
+1. 安装html-webpack-plugin npm i html-webpack-plugin -D
+2. 在webpack到配置文件webpack.config.js中配置插件，如下：
+
+const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+
+// New a plugin instance
+const htmlPlugin = new HtmlWebPackPlugin({
+    template: path.join(__dirname, '/src/index.html'), // source file
+    filename: 'index.html' // output file
+})
+
+module.exports = {
+    mode: 'development',
+
+    plugins: [
+        htmlPlugin
+    ]
+}

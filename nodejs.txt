@@ -1,0 +1,6 @@
+npm -D：-D会把依赖包加入package.json的devDependencies中，dev环境使用
+npm -S：-S会把依赖包加入package.json的dependencies中，prod环境使用
+
+npm i <module_name> -D: 安装模块
+
+npm uninstall <module_name>: 移除模块
