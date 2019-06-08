@@ -45,3 +45,26 @@ module.exports = {
         htmlPlugin
     ]
 }
+
+--------------------------------
+安装css样式loader并在webpack中配置：css-loader的参数modules是为了让css文件模块化
+--------------------------------
+1. npm i style-loader css-loader -D
+2. 在webpack配置文件中配置loader:
+    module: {
+      rules: [
+          {test: /\.css$/, use: ['style-loader', 'css-loader?modules&localIdentName=[path][name]-[local]-[hash:5]']}
+      ]
+    }
+
+
+--------------------------------
+安装scss样式loader并在webpack中配置：scss样式是css的超集，一般在React中自定义的样式会用scss/less文件，为了和第三方css文件区分开用不同的loader
+--------------------------------
+1. npm i sass-loader node-sass -D
+2. 在webpack配置文件中配置loader:
+    module: {
+      rules: [
+          {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']}
+      ]
+    }
