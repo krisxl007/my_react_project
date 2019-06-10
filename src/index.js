@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CommentList from './components/CommentList'
+import DataTwoWayBinding from './components/DataTwoWayBinding'
 
-ReactDOM.render(<CommentList/>, document.getElementById('app'));
+ReactDOM.render(<DataTwoWayBinding/>, document.getElementById('app'));
