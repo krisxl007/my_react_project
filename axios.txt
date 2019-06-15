@@ -1,0 +1,6 @@
+GitHub: https://github.com/axios/axios
+
+--------------------------------
+install axios using npm:
+--------------------------------
+npm i axios -D
