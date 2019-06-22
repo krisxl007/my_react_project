@@ -1,0 +1,9 @@
+-----------------------------------------------------
+install react-router and react-router-dome using npm:
+-----------------------------------------------------
+npm i react-router react-router-dom -D
+
+--------------------------------
+install history using npm: history package is required for react router
+--------------------------------
+npm i history -D
