@@ -6,10 +6,14 @@ install redux packages:
 npm i redux react-redux redux-thunk -D
 
 
-- Provider: 包裹在根模块上，为所有模块提供服务，需要给Provider提供一个Store
+- Provider: 包裹在根模块上，Provider为Redux对Store和React的所有Component提供服务，所以需要给Provider提供一个Store
 
 - Reducer: 作用是根据自己的业务逻辑来返回新的state，一般会使用Redux提供的combineReducers来包裹不同的reducer
 
-- Connect: react-redux中的connect方法是用来连接该模块和Action的方法
-
 - Action: action的type和data会被分发(dispatch)到Reducer中
+
+- Connect: react-redux中的connect方法是用来连接React的Component和Redux的Store的关键，它有4个可选参数：
+    - connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+    - 一般就使用第一和第二个参数
+        - mapStateToProps：把Store里的state赋予Component的props
+        - mapDispatchToProps： 一般传入的是Action， Action中Dispatch的type会传给相关的Reducer
