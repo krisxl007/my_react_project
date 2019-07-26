@@ -50,3 +50,12 @@ JSX语法就是符合XML规范的JS语法，通过使用babel包，可以把JSX�
           }
       ]
     }
+
+
+==================
+React的生命周期函数：
+==================
+当渲染组件时：constructor --> componentWillMount(true or false) if true -->  render --> componentDidMount
+当组件发生改变时：componentWillUpdate() / componentDidUpdate()
+当组件要接收到一个新的Props时：componentWillReceiveProps()
+当组件要被销毁时：componentWillUnmount()

@@ -7,7 +7,7 @@ export const fetchComments = () => dispatch => {
     let headers = {
         'Content-Type': 'application/json'
     };
-    axios.get(url_localhost, {headers}).then((response) => {
+    axios.get(url, {headers}).then((response) => {
         console.log(response);
         let commentList = [];
 
@@ -26,7 +26,5 @@ export const fetchComments = () => dispatch => {
         })
     }).catch((error) => {
         console.log('Handle error here:' + error)
-    }).finally( () => {
-        console.log('Handle finally here...')
     })
 }

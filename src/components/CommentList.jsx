@@ -30,10 +30,12 @@ CommentList.propTypes = {
 };
 
 // This is to assign props 'CmtList' from the state of redux store
-const mapStateToProps = state => ({
+const mapStateToProps = () => state => {
     // state.getComments is to find the reducer from combineReducers
-    commentLists: state.getComments.comments
-});
+    return {
+        commentLists: state.getComments.comments
+    }
+};
 
 // Connects const 'mapStateToProps' and fetchComments function in this component
 export default connect(mapStateToProps, {fetchComments}) (CommentList);
